@@ -18,6 +18,8 @@
   "homepage": "https://github.com/Igor-Lopes/express-lite#readme",
   "dependencies": {
     "app-module-path": "^2.2.0",
+    "body-parser": "^1.18.3",
+    "bodyparser-json-error": "^1.0.0",
     "consign": "^0.1.6",
     "cookie-parser": "^1.4.3",
     "csurf": "^1.9.0",

@@ -10,6 +10,10 @@ const cookieParser = require("cookie-parser");
 const csurf = require("csurf");
 /* Morgan */
 const morgan = require("morgan");
+/* Body Parser */
+const bodyParser = require("body-parser");
+/* Body Parser Error */
+const bodyParserError = require("bodyparser-json-error");
 /* Consign */
 const consign = require("consign");
 
@@ -36,6 +40,19 @@ module.exports = () => {
   /* Express Morgan */
   app.use(morgan("dev"));
 
+  /* Body Parser */
+  app.use(bodyParser.json());
+
+  /* Body Parser Error */
+  app.use(
+    bodyParserError.beautify({
+      status: 400,
+      res: {
+        error: "JSON Bad Syntax"
+      }
+    })
+  );
+
   /* Set view engine */
   app.use(express.static("./public"));
   app.set("view engine", "pug");
@@ -51,7 +68,6 @@ module.exports = () => {
     .then("libs")
     .then("controllers")
     .then("routes")
-    .then("middlewares")
     .into(app);
 
   return app;
