@@ -5,14 +5,23 @@ const config = require("./config/config");
 const app = require("./config/express")();
 const server = http.createServer(app);
 
-server.listen(process.env.PORT || 5000, function() {
+server.listen(process.env.PORT || 5000, () => {
   console.log(
-    "Express Server listening on port: " +
+    "Express Server - Listening on port: " +
       app.get("port") +
       " - Environment: " +
       process.env.NODE_ENV
   );
 });
 
+server.on("close", () => {
+  console.log("Express Server - Connection Closed");
+});
+
+const stopServer = () => {
+  server.close();
+};
+
 /* For testing with Mocha */
-module.exports = app;
+module.exports.server = app;
+module.exports.stopServer = stopServer;
