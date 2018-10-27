@@ -3,7 +3,6 @@ require("app-module-path").addPath(__dirname);
 const http = require("http");
 const config = require("./config/config");
 const app = require("./config/express")();
-app.base = __dirname;
 const server = http.createServer(app);
 
 server.listen(process.env.PORT || 5000, function() {
