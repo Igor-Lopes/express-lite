@@ -1,0 +1,26 @@
+{
+  "name": "express-lite",
+  "version": "1.0.0",
+  "description": "Lightweight MVC starter project for Express.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Igor-Lopes/express-lite.git"
+  },
+  "author": "igor-lopes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Igor-Lopes/express-lite/issues"
+  },
+  "homepage": "https://github.com/Igor-Lopes/express-lite#readme",
+  "dependencies": {
+    "app-module-path": "^2.2.0",
+    "consign": "^0.1.6",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "pug": "^2.0.3"
+  }
+}
