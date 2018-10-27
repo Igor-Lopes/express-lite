@@ -2,6 +2,12 @@
 const config = require("./config");
 /* Express */
 const express = require("express");
+/* Helmet */
+const helmet = require("helmet");
+/* Cookie Parser */
+const cookieParser = require("cookie-parser");
+/* Csurf */
+const csurf = require("csurf");
 /* Morgan */
 const morgan = require("morgan");
 /* Consign */
@@ -11,6 +17,21 @@ module.exports = () => {
   /* Init Express app and set port */
   const app = express();
   app.set("port", process.env.PORT || 5000);
+
+  /* Helmet */
+  app.use(helmet());
+
+  /* Cookie Parser */
+  app.use(cookieParser());
+
+  /* Express Csurf */
+  app.use(csurf({ cookie: true }));
+
+  /* Handle Csurf error */
+  app.use((err, req, res, next) => {
+    if (err.code !== "EBADCSRFTOKEN") return next(err);
+    res.status(403).end();
+  });
 
   /* Express Morgan */
   app.use(morgan("dev"));
