@@ -2,6 +2,10 @@
 const config = require("./config");
 /* Express */
 const express = require("express");
+/* Express sslify */
+const enforce = require("express-sslify");
+/* Compression */
+const compression = require("compression");
 /* Helmet */
 const helmet = require("helmet");
 /* Cookie Parser */
@@ -22,6 +26,14 @@ module.exports = () => {
   const app = express();
   app.set("port", process.env.PORT || 5000);
 
+  /* Express sslify */
+  if (config.ssl.enforce) {
+    app.use(enforce.HTTPS(config.modules.sslify));
+  }
+
+  /* Compression */
+  app.use(compression());
+
   /* Helmet */
   app.use(helmet());
 
@@ -29,7 +41,9 @@ module.exports = () => {
   app.use(cookieParser());
 
   /* Express Csurf */
-  app.use(csurf({ cookie: true }));
+  if (config.csurfMiddleware.enable) {
+    app.use(csurf({ cookie: true }));
+  }
 
   /* Handle Csurf error */
   app.use((err, req, res, next) => {
