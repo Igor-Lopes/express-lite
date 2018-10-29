@@ -43,13 +43,12 @@ module.exports = () => {
   /* Express Csurf */
   if (config.csurfMiddleware.enable) {
     app.use(csurf({ cookie: true }));
+    /* Handle Csurf error */
+    app.use((err, req, res, next) => {
+      if (err.code !== "EBADCSRFTOKEN") return next(err);
+      res.status(403).end();
+    });
   }
-
-  /* Handle Csurf error */
-  app.use((err, req, res, next) => {
-    if (err.code !== "EBADCSRFTOKEN") return next(err);
-    res.status(403).end();
-  });
 
   /* Express Morgan */
   app.use(morgan("dev"));
