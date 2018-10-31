@@ -11,7 +11,7 @@ Lightweight MVC starter project for Express.js.
 * Use ES6/ES7 Features supported by Node.js, such as ES6 **let/const** and ES7 **async/await**
 * Autoload modules with [Consign](https://github.com/jarradseers/consign)
 * Require app modules as the were installed into `node_modules` with [app-module-path-node](https://github.com/patrick-steele-idem/app-module-path-node)
-* **Environment** variables
+* **Environment** variables loader
 * [Body Parser](https://github.com/expressjs/body-parser) middleware
 * [Helmet](https://github.com/helmetjs/helmet) protection middleware
 * [Csurf](https://github.com/expressjs/csurf) protection middleware 
