@@ -29,50 +29,20 @@ Lightweight MVC starter project for Express.js.
 
 ## Setup
 
-1. Clone repo
+1. Clone and navigate into repo
 
     ```
     $ git clone https://github.com/Igor-Lopes/express-lite.git
+    $ cd express-lite
     ``` 
 
-2. Go to repo
-
-    ```
-    $ cd express-lite
-    ```
-
-3. Install dependencies
+2. Install dependencies
 
     ```
     $ npm install
     ```
     
-4. Check env variables
-
-    Check your env files in `config/env` . By default, express-lite comes with **development.js** env file, that contains a few default options:
-    
-    ```
-     module.exports = {
-        /* Set true to use sslify middleware. Production recommended */
-        ssl: {
-            enforce: false
-        },
-        /* Set true to use csurf middleware protection. Production recommended */
-        csurfMiddleware: {
-            enable: false
-        },
-        modules: {
-        /* sslify settings. Check docs for all available options. By default trustProtoHeader is set to false. Only set it to true if you trust your proxy, eg.: Heroku */
-            sslify: {
-                trustProtoHeader: false
-            }
-        }
-    };
-    ```
-
-    You can create a new env file, eg.: **production.js** and copy the contents of the default **development.js** file. You can also remove the need of the default configs by changing `express.js` config file to not require current variables. 
-
-5. Run app
+3. Run app
 
     ```
     $ node app.js
@@ -137,7 +107,28 @@ Contains all Pug Views.
 
 #### `env/`
 
-Contains all environment config files, named as the environment.
+Contains all environment config files. By default, express-lite comes with `development.js` and `production.js` env files, that contains a few default options:
+    
+    ```
+     module.exports = {
+        /* Set true to use sslify middleware. Production recommended */
+        ssl: {
+            enforce: false
+        },
+        /* Set true to use csurf middleware protection. Production recommended */
+        csurfMiddleware: {
+            enable: false
+        },
+        modules: {
+        /* sslify settings. Check docs for all available options. By default trustProtoHeader is set to false. Only set it to true if you trust your proxy, eg.: Heroku */
+            sslify: {
+                trustProtoHeader: false
+            }
+        }
+    };
+    ```
+
+You can create a new env file and copy the contents of one of the default config files. You can also remove the need of the default configs by changing `express.js` config file to not require current variables. 
 
 #### `config.js`
 
