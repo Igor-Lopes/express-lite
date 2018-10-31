@@ -109,24 +109,24 @@ Contains all Pug Views.
 
 Contains all environment config files. By default, express-lite comes with `development.js` and `production.js` env files, that contains a few default options:
     
-    ```
-     module.exports = {
-        /* Set true to use sslify middleware. Production recommended */
-        ssl: {
-            enforce: false
-        },
-        /* Set true to use csurf middleware protection. Production recommended */
-        csurfMiddleware: {
-            enable: false
-        },
-        modules: {
-        /* sslify settings. Check docs for all available options. By default trustProtoHeader is set to false. Only set it to true if you trust your proxy, eg.: Heroku */
-            sslify: {
-                trustProtoHeader: false
-            }
-        }
-    };
-    ```
+```
+module.exports = {
+  /* Set true to use sslify middleware. Production recommended */
+  ssl: {
+    enforce: false
+  },
+  /* Set true to use csurf middleware protection. Production recommended */
+  csurfMiddleware: {
+    enable: false
+  },
+  /* sslify settings. Check docs for all available options. By default trustProtoHeader is set to false. Only set it to true if you trust your proxy, eg.: Heroku */
+  modules: {
+    sslify: {
+      trustProtoHeader: false
+    }
+  }
+};
+```
 
 You can create a new env file and copy the contents of one of the default config files. You can also remove the need of the default configs by changing `express.js` config file to not require current variables. 
 
@@ -145,6 +145,10 @@ Contains all test files.
 ### `app.js`
 
 Main app file. Bootstrap all configuration, modules and starts Express.js server.
+
+## Contributing
+
+Please, feel free to open a PR. Any contribution is welcome !
 
 ## License
 
