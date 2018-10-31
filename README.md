@@ -64,7 +64,7 @@ Lightweight MVC starter project for Express.js.
 ```
 .
 +-- app
-|   +-- models**
+|   +-- models
 |   +-- controllers
 |   +-- libs
 |   +-- routes
